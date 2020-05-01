@@ -1,10 +1,8 @@
 package com.github.rakhmedovrs.springdependencyinjection.controllers;
 
-import com.github.rakhmedovrs.springdependencyinjection.services.GreetingServiceImpl;
+import com.github.rakhmedovrs.springdependencyinjection.services.ConstructorInjectedGettingService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @author RakhmedovRS
@@ -18,7 +16,7 @@ class SetterInjectedControllerTest
 	void setUp()
 	{
 		controller = new SetterInjectedController();
-		controller.setGreetingService(new GreetingServiceImpl());
+		controller.setGreetingService(new ConstructorInjectedGettingService());
 	}
 
 	@Test

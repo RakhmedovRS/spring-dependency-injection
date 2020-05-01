@@ -2,6 +2,7 @@ package com.github.rakhmedovrs.springdependencyinjection.controllers;
 
 import com.github.rakhmedovrs.springdependencyinjection.services.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,7 +15,7 @@ public class SetterInjectedController
 	private GreetingService greetingService;
 
 	@Autowired
-	public void setGreetingService(GreetingService greetingService)
+	public void setGreetingService(@Qualifier("setterInjectedGreetingService") GreetingService greetingService)
 	{
 		this.greetingService = greetingService;
 	}

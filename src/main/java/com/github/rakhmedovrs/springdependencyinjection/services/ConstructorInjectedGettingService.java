@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
  * @created 30-Apr-20
  */
 @Service
-public class GreetingServiceImpl implements GreetingService
+public class ConstructorInjectedGettingService implements GreetingService
 {
 	@Override
 	public String sayGreeting()
 	{
-		return "Hello World";
+		return "Hello World - Constructor";
 	}
 }

@@ -1,6 +1,5 @@
 package com.github.rakhmedovrs.springdependencyinjection.controllers;
 
-import com.github.rakhmedovrs.springdependencyinjection.services.GreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,6 @@ class PropertyInjectedControllerTest
 	void setUp()
 	{
 		controller = new PropertyInjectedController();
-		controller.greetingService = new GreetingServiceImpl();
 	}
 
 	@Test

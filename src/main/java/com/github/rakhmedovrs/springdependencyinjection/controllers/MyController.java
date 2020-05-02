@@ -1,5 +1,6 @@
 package com.github.rakhmedovrs.springdependencyinjection.controllers;
 
+import com.github.rakhmedovrs.springdependencyinjection.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -9,9 +10,15 @@ import org.springframework.stereotype.Controller;
 @Controller
 public class MyController
 {
+	private final GreetingService greetingService;
+
+	public MyController(GreetingService greetingService)
+	{
+		this.greetingService = greetingService;
+	}
+
 	public String sayHello()
 	{
-		System.out.println("Hello world");
-		return "Hello muchacho";
+		return greetingService.sayGreeting();
 	}
 }

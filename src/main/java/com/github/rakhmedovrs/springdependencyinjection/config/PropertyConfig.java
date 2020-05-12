@@ -2,30 +2,18 @@ package com.github.rakhmedovrs.springdependencyinjection.config;
 
 import com.github.rakhmedovrs.springdependencyinjection.examplebeans.FakeDataSource;
 import com.github.rakhmedovrs.springdependencyinjection.examplebeans.FakeJmsBroker;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.context.annotation.PropertySources;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.core.env.Environment;
 
 /**
  * @author RakhmedovRS
  * @created 11-May-20
  */
 @Configuration
-@PropertySources
-	({
-		@PropertySource("classpath:datasource.properties"),
-		@PropertySource("classpath:jms.properties")
-	})
 public class PropertyConfig
 {
-	@Autowired
-	Environment environment;
-
 	@Value("${fake.username}")
 	private String user;
 
@@ -47,7 +35,7 @@ public class PropertyConfig
 	@Bean
 	public FakeDataSource fakeDataSource()
 	{
-		return new FakeDataSource(environment.getProperty("FAKE_USERNAME"), password, url);
+		return new FakeDataSource(user, password, url);
 	}
 
 	@Bean

@@ -1,0 +1,5 @@
+fake:
+  jms:
+    username: IvanJMS
+    password: IvanJMS
+    url: ivan.jsm.com

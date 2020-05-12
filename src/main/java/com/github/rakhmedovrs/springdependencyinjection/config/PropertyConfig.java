@@ -1,11 +1,13 @@
 package com.github.rakhmedovrs.springdependencyinjection.config;
 
 import com.github.rakhmedovrs.springdependencyinjection.examplebeans.FakeDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.core.env.Environment;
 
 /**
  * @author RakhmedovRS
@@ -15,6 +17,9 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @PropertySource("classpath:datasource.properties")
 public class PropertyConfig
 {
+	@Autowired
+	Environment environment;
+
 	@Value("${fake.username}")
 	private String user;
 
@@ -27,7 +32,7 @@ public class PropertyConfig
 	@Bean
 	public FakeDataSource fakeDataSource()
 	{
-		return new FakeDataSource(user, password, url);
+		return new FakeDataSource(environment.getProperty("FAKE_USERNAME"), password, url);
 	}
 
 	@Bean
